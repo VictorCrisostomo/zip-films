@@ -31,20 +31,20 @@
                 </div>
             </section>
         </main>
-        <script>
-            let title = document.querySelector("#title");
-            let iframe = document.querySelector("#iframe")
-    
-            fetch("../filmesDB/filmesDB.json").then((response) =>{
-                response.json().then((filmData) =>{
-                    const name = filmData.filmes[0].title
-                    const url = filmData.filmes[0].url.filmeServer
+    <script>
+        let title = document.querySelector("#title");
+        let iframe = document.querySelector("#iframe")
 
-                    document.title = name;
-                    title.innerHTML = name; 
-                    iframe.src = url;
-                })
+        fetch("../filmesDB/filmesDB.json").then((response) =>{
+            response.json().then((filmData) =>{
+                const name = filmData.filmes[4].title
+                const url = filmData.filmes[4].url.filmeServer
+
+                document.title = name;
+                title.innerHTML = name; 
+                iframe.src = url;
             })
-        </script>
+        })
+    </script>
 </body>
 </html>
