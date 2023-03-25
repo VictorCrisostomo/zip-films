@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../style.css">
+    <title></title>
+</head>
+<body>
+    <header>
+        <h2 id="title"></h2>
+    </header>
+    <main class="container">
+        <section className="film-header">
+                <div class="film-content">
+                    <iframe id="iframe" name=Player "" src="" frameborder=0 scrolling=no allowFullScreen> </iframe>
+                </div>
+                <br>
+                <div class="btn-group">
+                    <!-- <a href="#">
+                        <button class="btn-prev-next">Anterior</button>
+                    </a> -->
+                    <!-- <a href="#">
+                        voltar ao site
+                    </a> -->
+                    <!-- <a href="#">
+                        <button class="btn-prev-next">Próximo</button>
+                    </a> -->
+                </div>
+            </section>
+        </main>
+    <script>
+        let title = document.querySelector("#title");
+        let iframe = document.querySelector("#iframe")
+
+        fetch("https://filmes-db-rust.vercel.app/filmesDB.json").then((response) =>{
+            response.json().then((filmData) =>{
+                const name = filmData.filmes[56].title
+                const url = filmData.filmes[56].url.filmeServer
+
+                document.title = name;
+                title.innerHTML = name; 
+                iframe.src = url;
+            })
+        })
+    </script>
+</body>
+</html>
